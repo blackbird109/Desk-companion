@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Desk Companion
+Comment=Launch the Desk Companion clock
+Exec=/Users/layla/Projects/desk-companion/start.sh
+Terminal=false
+X-GNOME-Autostart-enabled=true
