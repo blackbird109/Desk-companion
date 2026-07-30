@@ -5,15 +5,15 @@ from datetime import datetime
 
 window = tk.Tk()
 
-window.title("Desk Companion")
+window.title("TIK TOCK DOC")
 
 
-current_time = datetime.now().strtime("%I:%M %p")
+current_time = datetime.now().strftime("%I:%M %p")
 
 
-clock_lable = tk.Lable(window, text=current_time)
+clock_label = tk.Label(window, text=current_time)
 
-clock_lable.pack(padx=40, pady=40)
+clock_label.pack(padx=40, pady=40)
 
 
 window.mainloop()
