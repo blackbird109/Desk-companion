@@ -68,7 +68,7 @@ bottom_frame.pack(fill="x", pady=(0, 25))
 greeting_label = tk.Label(
     top_frame,
     text="",
-    font=("Arial", 50),
+    font=("Arial", 30),
     fg="DarkGreen",
     bg="Cornsilk",
 )
