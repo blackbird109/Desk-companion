@@ -76,7 +76,7 @@ greeting_label = tk.Label(
 clock_label = tk.Label(
     center_frame,
     text="",
-    font=("Arial", 200),
+    font=("Arial", 150),
     fg="DarkGreen",
     bg="Cornsilk",
 )
