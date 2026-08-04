@@ -34,29 +34,29 @@ def update_clock():
 window = tk.Tk()
 window.title("TIK TOCK DOC")
 window.attributes("-fullscreen", True)
-window.configure(bg="Champaign")
+window.configure(bg="Cornsilk")
 
 window.bind("<Escape>", lambda event: window.destroy())
 window.bind("<Button-1>", toggle_seconds)
 
 main_frame = tk.Frame(
     window,
-    bg="Champaign"
+    bg="Cornsilk"
 )
 
 top_frame = tk.Frame(
     main_frame,
-    bg="Champaign"
+    bg="Cornsilk"
 )
 
 center_frame = tk.Frame(
     main_frame,
-    bg="Champaign"
+    bg="Cornsilk"
 )
 
 bottom_frame = tk.Frame(
     main_frame,
-    bg="Champaign"
+    bg="Cornsilk"
 )
 
 main_frame.pack(fill="both", expand=True)
@@ -70,7 +70,7 @@ greeting_label = tk.Label(
     text="",
     font=("Arial", 30),
     fg="DarkGreen",
-    bg="Champaign",
+    bg="Cornsilk",
 )
 
 clock_label = tk.Label(
@@ -78,7 +78,7 @@ clock_label = tk.Label(
     text="",
     font=("Arial", 120),
     fg="DarkGreen",
-    bg="Champaign",
+    bg="Cornsilk",
 )
 
 instruction_label = tk.Label(
@@ -86,7 +86,7 @@ instruction_label = tk.Label(
     text="Tap to hide or show seconds",
     font=("Arial", 16),
     fg="dark slate gray",
-    bg="Champaign",
+    bg="Cornsilk",
 )
 
 greeting_label.pack()
