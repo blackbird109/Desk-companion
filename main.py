@@ -39,32 +39,60 @@ window.configure(bg="Cornsilk")
 window.bind("<Escape>", lambda event: window.destroy())
 window.bind("<Button-1>", toggle_seconds)
 
-greeting_label = tk.Label(
+main_frame = tk.Frame(
     window,
+    bg="Cornsilk"
+)
+
+top_frame = tk.Frame(
+    main_frame,
+    bg="Cornsilk"
+)
+
+center_frame = tk.Frame(
+    main_frame,
+    bg="Cornsilk"
+)
+
+bottom_frame = tk.Frame(
+    main_frame,
+    bg="Cornsilk"
+)
+
+main_frame.pack(fill="both", expand=True)
+
+top_frame.pack(fill="x", pady=(35, 0))
+center_frame.pack(fill="both", expand=True)
+bottom_frame.pack(fill="x", pady=(0, 25))
+
+greeting_label = tk.Label(
+    top_frame,
     text="",
     font=("Arial", 50),
-    fg="Dark Green",
+    fg="DarkGreen",
     bg="Cornsilk",
 )
 
 clock_label = tk.Label(
-    window,
+    center_frame,
     text="",
     font=("Arial", 200),
-    fg="Dark Green",
+    fg="DarkGreen",
     bg="Cornsilk",
 )
 
-instruction_lable = tk.Label(
-    window,
-    text=" Tap to hide or show sec",
-    font=("Ariel", 16),
+instruction_label = tk.Label(
+    bottom_frame,
+    text="Tap to hide or show seconds",
+    font=("Arial", 16),
     fg="dark slate gray",
-    bg="Cornsilk"
+    bg="Cornsilk",
 )
-instruction_lable.pack(pady=(0, 30))
-greeting_label.pack(pady=(40, 10))
+
+greeting_label.pack()
 clock_label.pack(expand=True)
+instruction_label.pack()
+
 
 update_clock()
 
