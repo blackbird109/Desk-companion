@@ -1,18 +1,20 @@
 from datetime import date
 
+
 def get_daily_message():
-    messages = [
-        "Live Laugh Love",
-        "Smile :)",
-        "You Got This",
-        "Mistakes help us improve",
-        "You can do this"
-    ]
+    try:
+        messages = [
+            "Live Laugh Love",
+            "Smile :)",
+            "You Got This",
+            "Mistakes help us improve",
+            "You can do this"
+        ]
 
-    today = date.today()
-    message_number = today.timetuple().tm_yday % len(messages)
+        today = date.today()
+        message_number = today.timetuple().tm_yday % len(messages)
 
-    return messages[message_number]
-    
-    return "Have a great day!"
+        return messages[message_number]
 
+    except Exception as e:
+        return f"Message unavailable Error: {e}"

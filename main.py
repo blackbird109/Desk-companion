@@ -8,10 +8,10 @@ USER_NAME = "Layla Coletti"
 SHOW_SECONDS = True
 
 # Coffee Shop Theme
-BG = "#3B2418"          # dark coffee brown
-TEXT = "#FFF1D0"        # warm cream
-ACCENT = "#C68B59"      # caramel
-GRAY = "#D3BFA6"
+BG = "#000000"          # 
+TEXT = "#473367"        # 
+ACCENT = "#92be46"      # 
+PINK = "#fb7462"
 
 
 def toggle_seconds(event):
@@ -30,13 +30,13 @@ def update_clock():
 
     # Greeting
     if 4 <= hour < 12:
-        greeting = f"Good Morning, {USER_NAME}! ☀️"
+        greeting = f"Good Morning, {USER_NAME}! "
     elif 12 <= hour < 16:
-        greeting = f"Good Afternoon, {USER_NAME}! 🌤️"
+        greeting = f"Good Afternoon, {USER_NAME}! "
     elif 16 <= hour < 21:
-        greeting = f"Good Evening, {USER_NAME}! 🌆"
+        greeting = f"Good Evening, {USER_NAME}! "
     else:
-        greeting = f"Good Night, {USER_NAME}! 🌙"
+        greeting = f"Good Night, {USER_NAME}! "
 
     # Clock
     if SHOW_SECONDS:
@@ -88,7 +88,7 @@ bottom_frame.pack(fill="x", pady=(0, 30))
 greeting_label = tk.Label(
     top_frame,
     text="",
-    font=("Georgia", 32),
+    font=("Arial Rounded MT Bold", 32),
     fg=TEXT,
     bg=BG
 )
@@ -97,7 +97,7 @@ greeting_label = tk.Label(
 weather_label = tk.Label(
     center_frame,
     text="",
-    font=("Georgia", 18),
+    font=("Arial Rounded MT Bold", 18),
     fg=TEXT,
     bg=BG
 )
@@ -106,7 +106,7 @@ weather_label = tk.Label(
 countdown_title = tk.Label(
     center_frame,
     text="Looking Forward",
-    font=("Georgia", 18),
+    font=("Arial Rounded MT Bold", 18),
     fg=TEXT,
     bg=BG
 )
@@ -114,8 +114,8 @@ countdown_title = tk.Label(
 countdown_label = tk.Label(
     center_frame,
     text="",
-    font=("Georgia", 20),
-    fg=TEXT,
+    font=("Arial Rounded MT Bold", 20),
+    fg=ACCENT,
     bg=BG
 )
 
@@ -123,8 +123,8 @@ countdown_label = tk.Label(
 message_label = tk.Label(
     center_frame,
     text="",
-    font=("Georgia", 18),
-    fg=TEXT,
+    font=("Arial Rounded MT Bold", 18),
+    fg=PINK,
     bg=BG,
     wraplength=500,
     justify="center"
@@ -134,7 +134,7 @@ message_label = tk.Label(
 clock_label = tk.Label(
     center_frame,
     text="",
-    font=("Georgia", 120),
+    font=("Arial Rounded MT Bold", 120),
     fg=ACCENT,
     bg=BG
 )
@@ -143,8 +143,8 @@ clock_label = tk.Label(
 instruction_label = tk.Label(
     bottom_frame,
     text="Tap to hide or show seconds",
-    font=("Georgia", 16),
-    fg=GRAY,
+    font=("Arial Rounded MT Bold", 16),
+    fg=PINK,
     bg=BG
 )
 
