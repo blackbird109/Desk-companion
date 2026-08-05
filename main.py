@@ -11,10 +11,10 @@ from modules.settings import *
 SHOW_SECONDS = True
 
 # Theme
-BG = "#000000"
-TEXT = "#7B1FA2"
-ACCENT = "#32CD32"
-PINK = "#FF6B6B"
+BG = "#3B2418"        # dark espresso brown
+TEXT = "#FFF1D0"      # warm cream
+ACCENT = "#C68B59"    # caramel latte
+PINK = "#D8A48F"      # soft coffee rose
 
 
 def toggle_seconds(event):
