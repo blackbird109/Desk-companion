@@ -1,5 +1,6 @@
 import tkinter as tk
 from datetime import datetime
+from weather import get_weather
 
 USER_NAME = "Layla Coletti"
 SHOW_SECONDS = True
@@ -18,6 +19,7 @@ def toggle_seconds(event):
 
 def update_clock():
     current_hour = datetime.now().hour
+    weather = get_weather()
 
     if current_hour < 12:
         greeting = f"Good morning, {USER_NAME}!"
@@ -32,6 +34,11 @@ def update_clock():
         current_time = datetime.now().strftime("%I:%M %p")
 
     greeting_label.config(text=greeting)
+
+    weather_label.config(
+        text=f'{weather["temperature"]}\n{weather["condition"]}'
+    )
+
     clock_label.config(text=current_time)
 
     window.after(1000, update_clock)
@@ -47,6 +54,7 @@ window.bind("<Escape>", lambda event: window.destroy())
 window.bind("<Button-1>", toggle_seconds)
 
 
+# Frames
 main_frame = tk.Frame(
     window,
     bg=BG
@@ -75,6 +83,7 @@ center_frame.pack(fill="both", expand=True)
 bottom_frame.pack(fill="x", pady=(0, 30))
 
 
+# Greeting
 greeting_label = tk.Label(
     top_frame,
     text="",
@@ -84,6 +93,17 @@ greeting_label = tk.Label(
 )
 
 
+# Weather
+weather_label = tk.Label(
+    center_frame,
+    text="",
+    font=("Georgia", 18),
+    fg=TEXT,
+    bg=BG
+)
+
+
+# Clock
 clock_label = tk.Label(
     center_frame,
     text="",
@@ -93,6 +113,7 @@ clock_label = tk.Label(
 )
 
 
+# Instructions
 instruction_label = tk.Label(
     bottom_frame,
     text="Tap to hide or show seconds",
@@ -102,8 +123,13 @@ instruction_label = tk.Label(
 )
 
 
+# Put everything on screen
 greeting_label.pack()
+
+weather_label.pack()
+
 clock_label.pack(expand=True)
+
 instruction_label.pack()
 
 
