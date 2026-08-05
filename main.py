@@ -2,6 +2,8 @@ import tkinter as tk
 from datetime import datetime
 from weather import get_weather
 from countdown import get_next_event
+from messages import get_daily_message
+
 
 USER_NAME = "Layla Coletti"
 SHOW_SECONDS = True
@@ -24,6 +26,7 @@ def update_clock():
 
     weather = get_weather()
     event = get_next_event()
+    message = get_daily_message()
 
     # Greeting
     if 4 <= hour < 12:
@@ -46,12 +49,15 @@ def update_clock():
     weather_label.config(
         text=f'{weather["temperature"]}\n{weather["condition"]}'
     )
-
-    clock_label.config(text=current_time)
-
+    
     countdown_label.config(
         text=f'{event["name"]}\n{event["days"]} days'
     )
+    
+    message_label.config(text=message)
+
+    clock_label.config(text=current_time)
+
 
     window.after(1000, update_clock)
 
@@ -110,15 +116,6 @@ weather_label = tk.Label(
     bg=BG
 )
 
-# Clock
-clock_label = tk.Label(
-    center_frame,
-    text="",
-    font=("Georgia", 120),
-    fg=ACCENT,
-    bg=BG
-)
-
 # Countdown
 countdown_title = tk.Label(
     center_frame,
@@ -136,6 +133,28 @@ countdown_label = tk.Label(
     bg=BG
 )
 
+message_label = tk.Label(
+    center_frame,
+    text="",
+    font=("Georgia", 18),
+    fg=TEXT,
+    bg=BG,
+    wraplength=500,
+    justify="center"
+)
+
+message_label.pack()
+
+
+# Clock
+clock_label = tk.Label(
+    center_frame,
+    text="",
+    font=("Georgia", 120),
+    fg=ACCENT,
+    bg=BG
+)
+
 # Instructions
 instruction_label = tk.Label(
     bottom_frame,
@@ -146,15 +165,17 @@ instruction_label = tk.Label(
 )
 
 # Pack everything
-greeting_label.pack()
+greeting_label.pack(pady=(0, 20))
 
-weather_label.pack()
+weather_label.pack(pady=10)
 
 clock_label.pack(expand=True)
 
 countdown_title.pack()
 
-countdown_label.pack()
+countdown_label.pack(pady=(0, 20))
+
+message_label.pack(pady=20)
 
 instruction_label.pack()
 
