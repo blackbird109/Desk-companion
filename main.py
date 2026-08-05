@@ -2,10 +2,11 @@
 
 import tkinter as tk
 from datetime import datetime
-from weather import get_weather
-from countdown import get_next_event
-from messages import get_daily_message
-from settings import * 
+
+from modules.weather import get_weather
+from modules.countdown import get_next_event
+from modules.messages import get_daily_message
+from modules.settings import *
 
 SHOW_SECONDS = True
 

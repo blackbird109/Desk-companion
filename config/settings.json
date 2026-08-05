@@ -1,0 +1,7 @@
+{
+    "user_name": "<Your Name Here>",
+    "greeting": "Good Morning",
+    "clock_format": "%I:%M %p",
+    "temperature_unit": "F"
+}
+
