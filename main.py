@@ -2,7 +2,6 @@
 
 import tkinter as tk
 from datetime import datetime
-
 from modules.weather import get_weather
 from modules.countdown import get_next_event
 from modules.messages import get_daily_message
@@ -11,10 +10,10 @@ from modules.settings import *
 SHOW_SECONDS = True
 
 # Theme
-BG = "#3B2418"        # dark espresso brown
-TEXT = "#FFF1D0"      # warm cream
-ACCENT = "#C68B59"    # caramel latte
-PINK = "#D8A48F"      # soft coffee rose
+BG = "#000000"
+TEXT = "#7B1FA2"
+ACCENT = "#32CD32"
+PINK = "#FF6B6B"
 
 
 def toggle_seconds(event):
@@ -76,6 +75,25 @@ def update_clock():
 
 # Window
 window = tk.Tk()
+SCREEN_WIDTH = window.winfo_screenwidth()
+SCREEN_HEIGHT = window.winfo_screenheight()
+if SCREEN_HEIGHT <= 600:
+    GREETING_SIZE = 24
+    CLOCK_SIZE = 84
+    TITLE_SIZE = 14
+    TEXT_SIZE = 14
+    INSTRUCTION_SIZE = 10
+    TOP_PADDING = 10
+    BOTTOM_PADDING = 5
+else:
+    GREETING_SIZE = 32
+    CLOCK_SIZE = 120
+    TITLE_SIZE = 18
+    TEXT_SIZE = 18
+    INSTRUCTION_SIZE = 16
+    TOP_PADDING = 40
+    BOTTOM_PADDING = 30
+
 
 window.title("TIK TOCK DOC")
 window.attributes("-fullscreen", True)
@@ -91,11 +109,7 @@ top_frame = tk.Frame(main_frame, bg=BG)
 center_frame = tk.Frame(main_frame, bg=BG)
 bottom_frame = tk.Frame(main_frame, bg=BG)
 
-main_frame.pack(fill="both", expand=True)
 
-top_frame.pack(fill="x", pady=(40, 0))
-center_frame.pack(fill="both", expand=True)
-bottom_frame.pack(fill="x", pady=(0, 30))
 
 
 # Labels
@@ -103,7 +117,7 @@ bottom_frame.pack(fill="x", pady=(0, 30))
 greeting_label = tk.Label(
     top_frame,
     text="",
-    font=("comfortaa", 32),
+    font=("comfortaa", GREETING_SIZE),
     fg=TEXT,
     bg=BG
 )
@@ -111,7 +125,7 @@ greeting_label = tk.Label(
 weather_label = tk.Label(
     center_frame,
     text="",
-    font=("comfortaa", 18),
+    font=("comfortaa", TEXT_SIZE),
     fg=PINK,
     bg=BG
 )
@@ -119,7 +133,7 @@ weather_label = tk.Label(
 countdown_title = tk.Label(
     center_frame,
     text="Looking Forward",
-    font=("comfortaa", 18),
+    font=("comfortaa", TITLE_SIZE),
     fg=TEXT,
     bg=BG
 )
@@ -127,7 +141,7 @@ countdown_title = tk.Label(
 countdown_label = tk.Label(
     center_frame,
     text="",
-    font=("comfortaa", 20),
+    font=("comfortaa", TEXT_SIZE),
     fg=ACCENT,
     bg=BG
 )
@@ -135,7 +149,7 @@ countdown_label = tk.Label(
 message_label = tk.Label(
     center_frame,
     text="",
-    font=("comfortaa", 18),
+    font=("comfortaa", TEXT_SIZE),
     fg=PINK,
     bg=BG,
     wraplength=500,
@@ -145,7 +159,7 @@ message_label = tk.Label(
 clock_label = tk.Label(
     center_frame,
     text="",
-    font=("comfortaa", 120),
+    font=("comfortaa", CLOCK_SIZE),
     fg=ACCENT,
     bg=BG
 )
@@ -153,12 +167,30 @@ clock_label = tk.Label(
 instruction_label = tk.Label(
     bottom_frame,
     text="Tap to hide or show seconds",
-    font=("comfortaa", 16),
+    font=("comfortaa", INSTRUCTION_SIZE),
     fg=PINK,
     bg=BG
 )
 
 
+# Place labels
+# Pack frames
+main_frame.pack(fill="both", expand=True)
+
+top_frame.pack(
+    fill="x",
+    pady=(TOP_PADDING, 0)
+)
+
+center_frame.pack(
+    fill="both",
+    expand=True
+)
+
+bottom_frame.pack(
+    fill="x",
+    pady=(0, BOTTOM_PADDING)
+)
 # Place labels
 greeting_label.pack(pady=(0, 20))
 weather_label.pack(pady=10)
@@ -172,5 +204,3 @@ instruction_label.pack()
 update_clock()
 
 window.mainloop()
-
-#hello
