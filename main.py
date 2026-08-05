@@ -4,7 +4,6 @@ from weather import get_weather
 from countdown import get_next_event
 from messages import get_daily_message
 
-
 USER_NAME = "Layla Coletti"
 SHOW_SECONDS = True
 
@@ -26,6 +25,7 @@ def update_clock():
 
     weather = get_weather()
     event = get_next_event()
+    print("EVENT:", event)
     message = get_daily_message()
 
     # Greeting
@@ -49,15 +49,19 @@ def update_clock():
     weather_label.config(
         text=f'{weather["temperature"]}\n{weather["condition"]}'
     )
-    
-    countdown_label.config(
-        text=f'{event["name"]}\n{event["days"]} days'
-    )
-    
+
+    # Countdown
+    if event["days"] == "--":
+        countdown_label.config(
+            text=f'{event["name"]}\n--'
+        )
+    else:
+        countdown_label.config(
+            text=f'{event["name"]}\n{event["days"]} days'
+        )
+
     message_label.config(text=message)
-
     clock_label.config(text=current_time)
-
 
     window.after(1000, update_clock)
 
@@ -72,25 +76,10 @@ window.bind("<Escape>", lambda event: window.destroy())
 window.bind("<Button-1>", toggle_seconds)
 
 # Frames
-main_frame = tk.Frame(
-    window,
-    bg=BG
-)
-
-top_frame = tk.Frame(
-    main_frame,
-    bg=BG
-)
-
-center_frame = tk.Frame(
-    main_frame,
-    bg=BG
-)
-
-bottom_frame = tk.Frame(
-    main_frame,
-    bg=BG
-)
+main_frame = tk.Frame(window, bg=BG)
+top_frame = tk.Frame(main_frame, bg=BG)
+center_frame = tk.Frame(main_frame, bg=BG)
+bottom_frame = tk.Frame(main_frame, bg=BG)
 
 main_frame.pack(fill="both", expand=True)
 
@@ -133,6 +122,7 @@ countdown_label = tk.Label(
     bg=BG
 )
 
+# Daily Message
 message_label = tk.Label(
     center_frame,
     text="",
@@ -142,9 +132,6 @@ message_label = tk.Label(
     wraplength=500,
     justify="center"
 )
-
-message_label.pack()
-
 
 # Clock
 clock_label = tk.Label(
@@ -166,17 +153,11 @@ instruction_label = tk.Label(
 
 # Pack everything
 greeting_label.pack(pady=(0, 20))
-
 weather_label.pack(pady=10)
-
 clock_label.pack(expand=True)
-
 countdown_title.pack()
-
 countdown_label.pack(pady=(0, 20))
-
 message_label.pack(pady=20)
-
 instruction_label.pack()
 
 update_clock()

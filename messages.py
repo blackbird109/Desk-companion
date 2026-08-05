@@ -13,4 +13,6 @@ def get_daily_message():
     message_number = today.timetuple().tm_yday % len(messages)
 
     return messages[message_number]
+    
+    return "Have a great day!"
 
