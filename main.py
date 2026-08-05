@@ -13,7 +13,7 @@ SHOW_SECONDS = True
 BG = "#000000"
 TEXT = "#7B1FA2"
 ACCENT = "#32CD32"
-PINK = "#fb7462"
+PINK = "#FF8A65"
 
 
 def toggle_seconds(event):
@@ -108,7 +108,7 @@ weather_label = tk.Label(
     center_frame,
     text="",
     font=("Arial Rounded MT Bold", 18),
-    fg=TEXT,
+    fg=PINK,
     bg=BG
 )
 
