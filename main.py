@@ -99,7 +99,7 @@ bottom_frame.pack(fill="x", pady=(0, 30))
 greeting_label = tk.Label(
     top_frame,
     text="",
-    font=("Arial Rounded MT Bold", 32),
+    font=("comfortaa", 32),
     fg=TEXT,
     bg=BG
 )
@@ -107,7 +107,7 @@ greeting_label = tk.Label(
 weather_label = tk.Label(
     center_frame,
     text="",
-    font=("Arial Rounded MT Bold", 18),
+    font=("comfortaa", 18),
     fg=PINK,
     bg=BG
 )
@@ -115,7 +115,7 @@ weather_label = tk.Label(
 countdown_title = tk.Label(
     center_frame,
     text="Looking Forward",
-    font=("Arial Rounded MT Bold", 18),
+    font=("comfortaa", 18),
     fg=TEXT,
     bg=BG
 )
@@ -123,7 +123,7 @@ countdown_title = tk.Label(
 countdown_label = tk.Label(
     center_frame,
     text="",
-    font=("Arial Rounded MT Bold", 20),
+    font=("comfortaa", 20),
     fg=ACCENT,
     bg=BG
 )
@@ -131,7 +131,7 @@ countdown_label = tk.Label(
 message_label = tk.Label(
     center_frame,
     text="",
-    font=("Arial Rounded MT Bold", 18),
+    font=("comfortaa", 18),
     fg=PINK,
     bg=BG,
     wraplength=500,
@@ -141,7 +141,7 @@ message_label = tk.Label(
 clock_label = tk.Label(
     center_frame,
     text="",
-    font=("Arial Rounded MT Bold", 120),
+    font=("comfortaa", 120),
     fg=ACCENT,
     bg=BG
 )
@@ -149,7 +149,7 @@ clock_label = tk.Label(
 instruction_label = tk.Label(
     bottom_frame,
     text="Tap to hide or show seconds",
-    font=("Arial Rounded MT Bold", 16),
+    font=("comfortaa", 16),
     fg=PINK,
     bg=BG
 )
