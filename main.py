@@ -1,6 +1,7 @@
 import tkinter as tk
 from datetime import datetime
 from weather import get_weather
+from countdown import get_next_event
 
 USER_NAME = "Layla Coletti"
 SHOW_SECONDS = True
@@ -18,20 +19,27 @@ def toggle_seconds(event):
 
 
 def update_clock():
-    current_hour = datetime.now().hour
+    now = datetime.now()
+    hour = now.hour
+
     weather = get_weather()
+    event = get_next_event()
 
-    if current_hour < 12:
-        greeting = f"Good morning, {USER_NAME}!"
-    elif current_hour < 18:
-        greeting = f"Good afternoon, {USER_NAME}!"
+    # Greeting
+    if 4 <= hour < 12:
+        greeting = f"Good Morning, {USER_NAME}! ☀️"
+    elif 12 <= hour < 16:
+        greeting = f"Good Afternoon, {USER_NAME}! 🌤️"
+    elif 16 <= hour < 21:
+        greeting = f"Good Evening, {USER_NAME}! 🌆"
     else:
-        greeting = f"Good evening, {USER_NAME}!"
+        greeting = f"Good Night, {USER_NAME}! 🌙"
 
+    # Clock
     if SHOW_SECONDS:
-        current_time = datetime.now().strftime("%I:%M:%S %p")
+        current_time = now.strftime("%I:%M:%S %p")
     else:
-        current_time = datetime.now().strftime("%I:%M %p")
+        current_time = now.strftime("%I:%M %p")
 
     greeting_label.config(text=greeting)
 
@@ -40,6 +48,10 @@ def update_clock():
     )
 
     clock_label.config(text=current_time)
+
+    countdown_label.config(
+        text=f'{event["name"]}\n{event["days"]} days'
+    )
 
     window.after(1000, update_clock)
 
@@ -52,7 +64,6 @@ window.configure(bg=BG)
 
 window.bind("<Escape>", lambda event: window.destroy())
 window.bind("<Button-1>", toggle_seconds)
-
 
 # Frames
 main_frame = tk.Frame(
@@ -75,13 +86,11 @@ bottom_frame = tk.Frame(
     bg=BG
 )
 
-
 main_frame.pack(fill="both", expand=True)
 
 top_frame.pack(fill="x", pady=(40, 0))
 center_frame.pack(fill="both", expand=True)
 bottom_frame.pack(fill="x", pady=(0, 30))
-
 
 # Greeting
 greeting_label = tk.Label(
@@ -92,7 +101,6 @@ greeting_label = tk.Label(
     bg=BG
 )
 
-
 # Weather
 weather_label = tk.Label(
     center_frame,
@@ -101,7 +109,6 @@ weather_label = tk.Label(
     fg=TEXT,
     bg=BG
 )
-
 
 # Clock
 clock_label = tk.Label(
@@ -112,6 +119,22 @@ clock_label = tk.Label(
     bg=BG
 )
 
+# Countdown
+countdown_title = tk.Label(
+    center_frame,
+    text="Looking Forward",
+    font=("Georgia", 18),
+    fg=TEXT,
+    bg=BG
+)
+
+countdown_label = tk.Label(
+    center_frame,
+    text="",
+    font=("Georgia", 20),
+    fg=TEXT,
+    bg=BG
+)
 
 # Instructions
 instruction_label = tk.Label(
@@ -122,16 +145,18 @@ instruction_label = tk.Label(
     bg=BG
 )
 
-
-# Put everything on screen
+# Pack everything
 greeting_label.pack()
 
 weather_label.pack()
 
 clock_label.pack(expand=True)
 
-instruction_label.pack()
+countdown_title.pack()
 
+countdown_label.pack()
+
+instruction_label.pack()
 
 update_clock()
 
