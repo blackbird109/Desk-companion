@@ -13,7 +13,7 @@ SHOW_SECONDS = True
 BG = "#000000"
 TEXT = "#7B1FA2"
 ACCENT = "#32CD32"
-PINK = "#FF4F81"
+PINK = "#FF6B6B"
 
 
 def toggle_seconds(event):
