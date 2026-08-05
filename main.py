@@ -51,15 +51,12 @@ def update_clock():
     )
 
     # Countdown
-    if event["days"] == "--":
-        countdown_label.config(
-            text=f'{event["name"]}\n--'
-        )
-    else:
-        countdown_label.config(
-            text=f'{event["name"]}\n{event["days"]} days'
-        )
+    countdown_text = f'{event["name"]}\n{event["days"]}'
 
+    countdown_label.config(
+        text=countdown_text
+    )
+    
     message_label.config(text=message)
     clock_label.config(text=current_time)
 
@@ -163,3 +160,6 @@ instruction_label.pack()
 update_clock()
 
 window.mainloop()
+
+
+#:)
