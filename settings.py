@@ -1,0 +1,5 @@
+USER_NAME = "MARV"
+
+CLOCK_FORMAT = "%I:%M %p"
+
+TEMPERATURE_UNIT = "F"

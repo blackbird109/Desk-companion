@@ -5,8 +5,8 @@ from datetime import datetime
 from weather import get_weather
 from countdown import get_next_event
 from messages import get_daily_message
+from settings import * 
 
-USER_NAME = "Layla Coletti"
 SHOW_SECONDS = True
 
 # Theme
@@ -47,13 +47,16 @@ def update_clock():
 
     # Greeting
     if 4 <= hour < 12:
-        greeting = f"Good Morning, {USER_NAME}!"
+        greeting = f"Good Morning!"
     elif 12 <= hour < 16:
-        greeting = f"Good Afternoon, {USER_NAME}!"
+        greeting = f"Good Afternoon!"
     elif 16 <= hour < 21:
-        greeting = f"Good Evening, {USER_NAME}!"
+        greeting = f"Good Evening!"
     else:
-        greeting = f"Good Night, {USER_NAME}!"
+        greeting = f"Good Night"  
+    
+    greeting = f"{greeting}, {USER_NAME}!"
+
 
     # Clock
     if SHOW_SECONDS:
