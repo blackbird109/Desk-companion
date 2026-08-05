@@ -4,6 +4,12 @@ from datetime import datetime
 USER_NAME = "Layla Coletti"
 SHOW_SECONDS = True
 
+# Coffee Shop Theme
+BG = "#3B2418"          # dark coffee brown
+TEXT = "#FFF1D0"        # warm cream
+ACCENT = "#C68B59"      # caramel
+GRAY = "#D3BFA6"
+
 
 def toggle_seconds(event):
     global SHOW_SECONDS
@@ -32,62 +38,69 @@ def update_clock():
 
 
 window = tk.Tk()
+
 window.title("TIK TOCK DOC")
 window.attributes("-fullscreen", True)
-window.configure(bg="#D18D68")
+window.configure(bg=BG)
 
 window.bind("<Escape>", lambda event: window.destroy())
 window.bind("<Button-1>", toggle_seconds)
 
+
 main_frame = tk.Frame(
     window,
-    bg="#D18D68"
+    bg=BG
 )
 
 top_frame = tk.Frame(
     main_frame,
-    bg="#D18D68"
+    bg=BG
 )
 
 center_frame = tk.Frame(
     main_frame,
-    bg="#D18D68"
+    bg=BG
 )
 
 bottom_frame = tk.Frame(
     main_frame,
-    bg="#D18D68"
+    bg=BG
 )
+
 
 main_frame.pack(fill="both", expand=True)
 
-top_frame.pack(fill="x", pady=(35, 0))
+top_frame.pack(fill="x", pady=(40, 0))
 center_frame.pack(fill="both", expand=True)
-bottom_frame.pack(fill="x", pady=(0, 25))
+bottom_frame.pack(fill="x", pady=(0, 30))
+
 
 greeting_label = tk.Label(
     top_frame,
     text="",
-    font=("Arial", 30),
-    fg="DarkGreen",
-    bg="#D18D68",
+    font=("Georgia", 32),
+    fg=TEXT,
+    bg=BG
 )
+
 
 clock_label = tk.Label(
     center_frame,
     text="",
-    font=("Arial", 120),
-    fg="DarkGreen",
-    bg="#D18D68",
+    font=("Georgia", 120),
+    fg=ACCENT,
+    bg=BG
 )
+
 
 instruction_label = tk.Label(
     bottom_frame,
     text="Tap to hide or show seconds",
-    font=("Arial", 16),
-    fg="dark slate gray",
-    bg="#D18D68",
+    font=("Georgia", 16),
+    fg=GRAY,
+    bg=BG
 )
+
 
 greeting_label.pack()
 clock_label.pack(expand=True)
