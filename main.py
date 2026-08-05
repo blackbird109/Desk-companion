@@ -205,4 +205,4 @@ update_clock()
 
 window.mainloop()
 
-#hello
+#Goodbye
