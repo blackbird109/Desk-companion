@@ -12,7 +12,7 @@ SHOW_SECONDS = True
 # Theme
 BG = "#000000"
 TEXT = "#7B1FA2"
-ACCENT = "#92be46"
+ACCENT = "#00A86B"
 PINK = "#fb7462"
 
 
